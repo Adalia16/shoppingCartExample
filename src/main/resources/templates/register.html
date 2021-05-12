@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace ="/fragments/head">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:replace="/fragments/nav :: nav-front">
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <h3 class="display-4">Register</h3>
+            <form method="post" th:object="${user}" th:action="@{/register}">
+                <div class="form-group">
+                    <label for="">Username:</label>
+                    <input type="text" class="form-control" th:field="*{username}" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="">Password:</label>
+                    <input type="password" class="form-control" th:field="*{password}">
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm Password:</label>
+                    <input type="text" class="form-control" th:field="*{confirmPassword}">
+                    <span class="error" th:if="${passwordMatchProblem}">Passwords do not match!</span>
+                </div>
+                <div class="form-group">
+                    <label for="">Email:</label>
+                    <input type="email" class="form-control" th:field="*{email}">
+                </div>
+                <div class="form-group">
+                    <label for="">Phone number:</label>
+                    <input type="text" class="form-control" th:field="*{phoneNumber}">
+                </div>
+                <br>
+                <button class="btn btn-danger">Register</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<footer class="container" th:replace="/fragments/footer">
+</footer>
+</body>
+</html>
